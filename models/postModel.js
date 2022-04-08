@@ -3,9 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 const sqlz = require('../cfg/connection');
 
 // define post model
-class Postmodel extends Model {
-    
-}
+class Postmodel extends Model {}
 
 Postmodel.init(
     {
