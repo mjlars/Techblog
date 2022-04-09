@@ -2,7 +2,7 @@
   "name": "techblog",
   "version": "1.0.0",
   "description": "Tech Blog",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "test"
   },

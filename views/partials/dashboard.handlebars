@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form id="postForm" class="new-post">
+                <h2 class="form-title">Create a new post</h2>
+                <input type="text" name="post-title" id="post-title" placeholder="Title"/>
+                <label for="content">{{post.content}}</label>
+                <input type="input" id="new-post-content"/>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{#if posts.length}}
+<div class="my-posts container">
+
+    <div class="row">
+        <div class="col">
+            <h2>My Posts</h2>
+            <ol>
+                {{#each posts as |post|}}
+                    <li>
+                {{> post-info post}}
+                    <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+                    </li>
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+
+</div>
+{{/if}}
+
+<script src="/jsEvents/posts.js"></script>
+
+
+    {{! Compare this snippet from views\partials\dashboard.handlebars: }}
+    {{! <div class="dashboard">
+    }}
+    {{!     <h2>Dashboard</h2>
+    {{!     <div class="posts">
+    {{!         <h3>Posts</h3>
+    {{!         {{#each posts}}
+    {{!             {{> postInfo }}
+    {{!         {{/each}}
+    {{!     </div>
+    {{!     <div class="comments">
+    {{!         <h3>Comments</h3>
+    {{!         {{#each comments}}
+    {{!             {{> commentInfo }}
+    {{!         {{/each}}
+    {{!     </div>
+    {{! </div> }}
+    {{! Compare this snippet from views\partials\commentInfo.handlebars: }}
+    {{! <article class="comment">
+    {{!     <div class="title">
+    {{!         <a href="{{comment.title}}" target="_blank">{{title}}</a>
+    {{!         <span>({{comment}})</span>
+    {{!     </div>
+    {{! 
+    {{!     <div class="meta">
+    {{!         <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    {{!     </div>
+    {{! </article> }}
+    {{! Compare this snippet from views\partials\commentInfo.handlebars: }}
+    {{! <article class="comment">
+    {{!     <div class="title">
+    {{!         <a href="{{comment.title}}" target="_blank">{{title}}</a>
+    {{!         <span>({{comment}})</span>
+    {{!     </div>
+    {{! 
+    {{!     <div class="meta">
+    {{!         <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    {{!     </div>
+    {{! </article> }}
+    {{! Compare this snippet from views\partials\commentInfo.handlebars: }}
+    {{! <article class="comment">
+    {{!     <div class="title">
+    {{!         <a
