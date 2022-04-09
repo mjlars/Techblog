@@ -1,0 +1,72 @@
+{{> post-info post}}
+
+
+{{#if loggedIn}}
+    <div class="card">
+        <h2>{{post.title}}</h2>
+        <div>
+            {{post.User.username}} from {{ format+date post.created_at}}
+        </div>
+        <div class="card-body">
+            {{post.body}}
+        </div>
+    </div>
+
+
+{{#if post.comment}}
+    <section class="card">
+        <div class="card-header">
+            <h2>comments</h2>
+        </div>
+        <div class="card">
+            {{#each post.comment}}
+        <div>
+            <p>
+            {{body}}
+            </p>
+        </div>
+        </div>
+    </section>
+
+    <form class="comment-form">
+    <div>
+        <textarea name="comment-body"></textarea>
+    </div>
+
+    <div>
+        <button type="submit">add comment</button>
+        <button type="button" class="comment-btn">comment</button>
+    </div>
+    </form>
+{{/if}}
+
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+<script src="/jsEvents/posts.js"></script>
+{{/if}}
+
+    
+    {{! Language: handlebars }}
+    {{! Path: views\posts.handlebars }}
+    {{! Compare this snippet from views\single-post.handlebars: }}
+    {{! <article class='card'>
+    }}
+    {{!     <h1>
+    }}
+    {{!         <a href='/post/{{id}}'>{{title}}</a>
+    }}
+    {{!     </h1>
+    }}
+    {{!     <div>
+    }}
+    {{!         Post by {{User.username}} on {{format_date createdAt}}
+    }}
+    {{!     </div>
+    {{!     <div class='card-body'>
+    }}
+    {{!         {{body}}
+    }}
+    {{!     </div>
+    {{! </article> }}
+    {{> post-info post}}
